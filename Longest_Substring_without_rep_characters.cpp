@@ -49,6 +49,29 @@ This is because:
 There are O(n²) iterations (nested loops).
 Each iteration does a string search which can take up to O(n) time.
 
+
+What is unordered_set?
+It's a hash-based container in C++ that stores unique elements.
+It allows for average-case constant time complexity — O(1) — for:
+Insertion (insert)
+Deletion (erase)
+Lookup (find)
+
+✅ Why Use unordered_set in This Problem?
+The goal is to find the longest substring without repeating characters, and we need to:
+
+Quickly check if a character is already in the current substring.
+Efficiently add new characters.
+Remove characters when shrinking the sliding window.
+Using unordered_set allows all of these operations to be done in constant time, which is crucial for maintaining the overall O(n) time complexity.
+
+🆚 Why Not Use Other Containers?
+Container	Lookup Time	Allows Duplicates?	Ordered?	Suitable?
+unordered_set	 O(1)	      		❌ No		❌ No		✅ Yes
+set		O(log n)		❌ No		✅ Yes		❌ Slower
+vector		O(n)			✅ Yes		❌ No		❌ Too slow
+map		O(log n)		❌ No		✅ Yes		❌ Overkill
+
 */
 
 class Solution {
