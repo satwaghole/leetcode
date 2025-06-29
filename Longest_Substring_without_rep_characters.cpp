@@ -53,6 +53,8 @@ Each iteration does a string search which can take up to O(n) time.
 
 class Solution {
 public:
+
+   // Brute force approach 
     int lengthOfLongestSubstring(string s) 
     {
         int MaxCount=0,count=1;
@@ -79,6 +81,29 @@ public:
         }     
         return MaxCount;
     }
+
+  // sliding window approach   - TC - O(n) time
+ int lengthOfLongestSubstring(string s)
+	{
+       int left=0, right=0, maxLength=0;
+       std::unordered_set<char> mySet;
+       
+       while(right < s.length())
+       {
+       		if(mySet.find(s[right])==mySet.end())
+       		{
+       			mySet.insert(s[right]);
+       			maxLength = max(maxLength, right-left+1);
+       			right++;
+			}
+			else
+			{
+				mySet.erase(s[left]);
+				left++;
+			}
+	   }
+	   return maxLength;
+    }
 };
 
 int main()
@@ -87,3 +112,6 @@ int main()
 	cout<<" answer is = "<<s1->lengthOfLongestSubstring("dvdf");	
 	return 0;	
 }
+
+// 
+
