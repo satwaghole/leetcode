@@ -33,6 +33,22 @@ Constraints:
 0 <= s.length <= 5 * 104
 s consists of English letters, digits, symbols and spaces.
 
+
+Time complexity:-
+================
+Let n be the length of the input string s.
+
+In the worst case, the inner loop runs up to n times for each i.
+The find() operation inside the inner loop takes O(k) time, where k can be up to n.
+So, the overall time complexity is:
+
+O(n³) in the worst case.
+
+This is because:
+
+There are O(n²) iterations (nested loops).
+Each iteration does a string search which can take up to O(n) time.
+
 */
 
 class Solution {
